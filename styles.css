@@ -21,22 +21,31 @@ header {
   box-shadow: 0 0 15px #eee;
 }
 
+.intro {
+  text-align: center;
+  padding-top: 2rem;
+  color: #eee;
+  font-family: "Mulish", serif;
+}
+
+a {
+  color: #a5e2ff;
+}
+
 footer {
   text-align: center;
   padding: 0.5rem;
   background-color: #333;
   color: #fdfdfd;
   /* align to bottom */
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  /* align to bottom */
 }
 
 .gallery {
   display: grid;
   grid-template-columns: 1fr;
   gap: 5px;
-  padding: 2rem;
+  padding: 1rem;
   transition: 0.3s;
 }
 @media (min-width: 768px) {

@@ -24,6 +24,17 @@ header {
 	box-shadow: 0 0 15px #eee;
 }
 
+.intro {
+	text-align: center;
+	padding-top: 2rem;
+	color: #eee;
+	font-family: "Mulish", serif;
+}
+
+a {
+	color: #a5e2ff;
+}
+
 footer {
 	text-align: center;
 	padding: .5rem;
@@ -31,9 +42,12 @@ footer {
 	color: #fdfdfd;
 	
 	/* align to bottom */
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+	// position: fixed;
+	// bottom: 0;
+	// width: 100%;
+
+	/* align to bottom */
+	
 }
 
 @mixin breakpoint($point) {
@@ -58,7 +72,7 @@ footer {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 5px;
-	padding: 2rem;
+	padding: 1rem;
 	transition: .3s;
 	
 	@include breakpoint(tablet) {
