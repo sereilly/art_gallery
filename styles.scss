@@ -1,0 +1,110 @@
+$tablet: 768px;
+$desktop: 1024px;
+$desktopLarge: 1440px;
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #222;
+}
+header {
+	/* show the image art/header with a gradient overlay */
+	background-image: linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0.0)), url('art/header.png');
+	background-color: #eee;
+	font-family: "Mulish", serif;
+	font-optical-sizing: auto;
+	font-weight: 200;
+	font-style: normal;
+	background-size:cover;
+	color: #222;
+	padding: .8rem;
+	text-align: center;
+	/* add a drop shadow */
+	box-shadow: 0 0 15px #eee;
+}
+
+footer {
+	text-align: center;
+	padding: .5rem;
+	background-color: #333;
+	color: #fdfdfd;
+	
+	/* align to bottom */
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+@mixin breakpoint($point) {
+	@if $point == tablet {
+    @media (min-width: $tablet) {
+      @content;
+		}
+	}
+  @if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+		}
+	}
+	 @if $point == desktopLarge {
+    @media (min-width: $desktopLarge) {
+      @content;
+		}
+	}
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 5px;
+	padding: 2rem;
+	transition: .3s;
+	
+	@include breakpoint(tablet) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	@include breakpoint(desktop) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	
+	@include breakpoint(desktopLarge) {
+		grid-template-columns: repeat(6, 1fr);
+	}
+		
+	&__thumb {
+		position: relative;
+		overflow: hidden; // Ensure content is clipped to the parent bounds
+	}
+	
+	&__image {
+		display: block;
+		width: 100%;
+		object-fit: cover; // Ensures the image fills its container proportionally
+		transition: transform 0.3s;
+	  }
+	
+	&__caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 15px;
+		font-family: 'Helvetica', sans-serif;
+		font-size: 14px;
+		color: white;
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+		opacity: 0;
+		transition: opacity 0.3s;
+		pointer-events: none;
+	  }
+
+	  &__link:hover .gallery__caption {
+		opacity: 1; // Makes the caption visible on hover
+	  }
+	
+	  &__link:hover .gallery__image {
+		transform: scale(1.1); // Scales the image slightly on hover
+	  }
+}
