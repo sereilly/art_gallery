@@ -1,5 +1,9 @@
+
+* {
+  font-family: "Mulish", serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #222;
@@ -9,7 +13,6 @@ header {
   /* show the image art/header with a gradient overlay */
   background-image: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0)), url("art/header.png");
   background-color: #eee;
-  font-family: "Mulish", serif;
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
@@ -23,9 +26,9 @@ header {
 
 .intro {
   text-align: center;
-  padding-top: 2rem;
+  padding: 2rem;
+  padding-bottom: 0;
   color: #eee;
-  font-family: "Mulish", serif;
 }
 
 a {
