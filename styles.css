@@ -1,6 +1,7 @@
 
 * {
   font-family: "Mulish", serif;
+  font-optical-sizing: auto;
 }
 
 body {
@@ -11,17 +12,18 @@ body {
 
 header {
   /* show the image art/header with a gradient overlay */
-  background-image: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0)), url("art/header.png");
+  /* background-image: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0)), url("art/header.png"); */
+  background-image: url("header.jpg");
   background-color: #eee;
-  font-optical-sizing: auto;
+
   font-weight: 200;
   font-style: normal;
   background-size: cover;
-  color: #222;
-  padding: 0.8rem;
+  color: #ffffff;
+  padding: 2rem;
   text-align: center;
   /* add a drop shadow */
-  box-shadow: 0 0 15px #eee;
+  box-shadow: 0 0 15px #666;
 }
 
 .intro {
