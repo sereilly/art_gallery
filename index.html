@@ -74,6 +74,20 @@
                         overlayImage.src = img.src;
                         overlay.style.display = 'flex'; // Show the overlay
                     });
+
+                    // Close overlay when pressing the Escape key
+                    document.addEventListener('keydown', function (event) {
+                        if (event.key === "Escape") {
+                            document.getElementById('overlay').style.display = 'none';
+                        }
+                    });
+
+                    // Close overlay when clicking outside of the image (on the overlay background)
+                    document.getElementById('overlay').addEventListener('click', function (event) {
+                        if (event.target === document.getElementById('overlay')) {
+                            document.getElementById('overlay').style.display = 'none';
+                        }
+                    });
                 });
             })
             .catch(error => console.error('Error loading paintings data:', error));
