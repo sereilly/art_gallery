@@ -65,7 +65,17 @@
                     link.appendChild(figure);
                     gallery.appendChild(link);
 
-                    // Add click event to show the fullscreen overlay
+                    // Add a function to disable scrolling
+                    function disableScroll() {
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    // Add a function to enable scrolling
+                    function enableScroll() {
+                        document.body.style.overflow = 'auto';
+                    }
+
+                    // Show the overlay
                     img.addEventListener('click', function () {
                         const overlay = document.getElementById('overlay');
                         const overlayImage = document.getElementById('overlay-image');
@@ -73,12 +83,14 @@
                         // Set the larger image in the overlay
                         overlayImage.src = img.src;
                         overlay.style.display = 'flex'; // Show the overlay
+                        disableScroll(); // Disable scrolling
                     });
 
                     // Close overlay when pressing the Escape key
                     document.addEventListener('keydown', function (event) {
                         if (event.key === "Escape") {
                             document.getElementById('overlay').style.display = 'none';
+                            enableScroll(); // Enable scrolling when overlay is closed
                         }
                     });
 
@@ -86,7 +98,14 @@
                     document.getElementById('overlay').addEventListener('click', function (event) {
                         if (event.target === document.getElementById('overlay')) {
                             document.getElementById('overlay').style.display = 'none';
+                            enableScroll(); // Enable scrolling when overlay is closed
                         }
+                    });
+
+                    // Close overlay when clicking the close button
+                    document.getElementById('close-overlay').addEventListener('click', function () {
+                        document.getElementById('overlay').style.display = 'none';
+                        enableScroll(); // Enable scrolling when overlay is closed
                     });
                 });
             })
