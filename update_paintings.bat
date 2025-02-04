@@ -7,7 +7,7 @@ git add paintings.txt
 git add art/*
 
 :: Commit the changes with a message
-git commit -m "Update paintings.txt"
+git commit -m "Update paintings"
 
 :: Push the changes to the remote repository
 git push origin main
