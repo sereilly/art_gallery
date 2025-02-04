@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lake Life Art Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="overlay.css">
+
 </head>
+
 <body>
     <header>
         <h1>Lake Life Art Studio</h1>
     </header>
     <section class="intro">
-        <p>Welcome to Lake Life Art Studio! All works below are a collaboration between Jules Reilly and Liz Kuehn. For inquiries, please contact us at <a href="mailto:juleslizart@gmail.com">juleslizart@gmail.com</a>.</p>
+        <p>Welcome to Lake Life Art Studio! All works below are a collaboration between Jules Reilly and Liz Kuehn. For
+            inquiries, please contact us at <a href="mailto:juleslizart@gmail.com">juleslizart@gmail.com</a>.</p>
     </section>
 
     <section id="gallery" class="gallery"></section>
@@ -23,13 +29,20 @@
         <p>&copy; 2025 Lake Life Art Studio</p>
     </footer>
 
+    <!-- Fullscreen Overlay (initially hidden) -->
+    <div id="overlay" class="overlay">
+        <span id="close-overlay" class="close-overlay">&times;</span>
+        <img id="overlay-image" class="overlay-image" src="" alt="">
+    </div>
+
     <script>
+        // Fetch the paintings.json data and load dynamically
         // Fetch the paintings.json data and load dynamically
         fetch('paintings.json')
             .then(response => response.json())
             .then(paintings => {
                 const gallery = document.getElementById('gallery');
-                
+
                 paintings.forEach(painting => {
                     const link = document.createElement('a');
                     link.target = "_blank";
@@ -37,7 +50,7 @@
 
                     const figure = document.createElement('figure');
                     figure.classList.add('gallery__thumb');
-                    
+
                     const img = document.createElement('img');
                     img.src = painting.image;
                     img.alt = painting.title;
@@ -51,9 +64,25 @@
                     figure.appendChild(caption);
                     link.appendChild(figure);
                     gallery.appendChild(link);
+
+                    // Add click event to show the fullscreen overlay
+                    img.addEventListener('click', function () {
+                        const overlay = document.getElementById('overlay');
+                        const overlayImage = document.getElementById('overlay-image');
+
+                        // Set the larger image in the overlay
+                        overlayImage.src = img.src;
+                        overlay.style.display = 'flex'; // Show the overlay
+                    });
                 });
             })
             .catch(error => console.error('Error loading paintings data:', error));
+
+        // Close overlay when clicking the close button
+        document.getElementById('close-overlay').addEventListener('click', function () {
+            document.getElementById('overlay').style.display = 'none';
+        });
     </script>
 </body>
+
 </html>
