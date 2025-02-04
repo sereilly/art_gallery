@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Fiery Dance",
+        "description": "Oil on Canvas - 36x48",
+        "image": "art/Fiery_Dance.jpg"
+    },
+    {
+        "title": "Goldenrod",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6248.PNG"
+    },
+    {
+        "title": "Tranquil Journey",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6249.PNG"
+    },
+    {
+        "title": "Recipe for Nougat",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6250.jpg"
+    },
+    {
+        "title": "Untitled",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6251.PNG"
+    },
+    {
+        "title": "Pastel Pool",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6252.jpg"
+    },
+    {
+        "title": "Off the Grid",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6418.jpg"
+    },
+    {
+        "title": "Fragmented Crevice",
+        "description": "Oil on Canvas - 48x48",
+        "image": "art/IMG_6419.jpg"
+    }
+]

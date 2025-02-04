@@ -17,66 +17,43 @@
         <p>Welcome to Lake Life Art Studio! All works below are a collaboration between Jules Reilly and Liz Kuehn. For inquiries, please contact us at <a href="mailto:juleslizart@gmail.com">juleslizart@gmail.com</a>.</p>
     </section>
 
-    <section class="gallery">
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/fiery dance-4914-2.JPG" alt="Fiery Dance" class="gallery__image">
-                <figcaption class="gallery__caption">Fiery Dance<br>Oil on Canvas<br>36x48</figcaption>
-            </figure>
-        </a>
-
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6248.PNG" alt="Goldenrod" class="gallery__image">
-                <figcaption class="gallery__caption">Goldenrod<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6249.PNG" alt="Tranquil Journey" class="gallery__image">
-                <figcaption class="gallery__caption">Tranquil Journey<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-    
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6250.jpg" alt="Recipe for Nougat" class="gallery__image">
-                <figcaption class="gallery__caption">Recipe for Nougat<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-        
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6251.PNG" alt="Untitled" class="gallery__image">
-                <figcaption class="gallery__caption">Untitled<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6252.jpg" alt="Pastel Pool" class="gallery__image">
-                <figcaption class="gallery__caption">Pastel Pool<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-    
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6418.jpg" alt="Off the Grid" class="gallery__image">
-                <figcaption class="gallery__caption">Off the Grid<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-        
-        <a target="_blank" class="gallery__link">
-            <figure class="gallery__thumb">
-                <img src="art/IMG_6419.jpg" alt="Fragmented Crevice" class="gallery__image">
-                <figcaption class="gallery__caption">Fragmented Crevice<br>Oil on Canvas<br>48x48</figcaption>
-            </figure>
-        </a>
-    </section>
+    <section id="gallery" class="gallery"></section>
 
     <footer>
         <p>&copy; 2025 Lake Life Art Studio</p>
     </footer>
+
+    <script>
+        // Fetch the paintings.json data and load dynamically
+        fetch('paintings.json')
+            .then(response => response.json())
+            .then(paintings => {
+                const gallery = document.getElementById('gallery');
+                
+                paintings.forEach(painting => {
+                    const link = document.createElement('a');
+                    link.target = "_blank";
+                    link.classList.add('gallery__link');
+
+                    const figure = document.createElement('figure');
+                    figure.classList.add('gallery__thumb');
+                    
+                    const img = document.createElement('img');
+                    img.src = painting.image;
+                    img.alt = painting.title;
+                    img.classList.add('gallery__image');
+
+                    const caption = document.createElement('figcaption');
+                    caption.classList.add('gallery__caption');
+                    caption.innerHTML = `${painting.title}<br>${painting.description}`;
+
+                    figure.appendChild(img);
+                    figure.appendChild(caption);
+                    link.appendChild(figure);
+                    gallery.appendChild(link);
+                });
+            })
+            .catch(error => console.error('Error loading paintings data:', error));
+    </script>
 </body>
 </html>
