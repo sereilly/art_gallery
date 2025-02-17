@@ -107,6 +107,35 @@
                         document.getElementById('overlay').style.display = 'none';
                         enableScroll(); // Enable scrolling when overlay is closed
                     });
+
+                    // Check if the device likely doesn't support hover (e.g., a mobile device)
+                    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+                        // Select all the gallery item containers (the <figure> elements)
+                        const galleryThumbs = document.querySelectorAll('.gallery__thumb');
+
+                        // Set up the IntersectionObserver options (adjust threshold as needed)
+                        const observerOptions = {
+                            threshold: 0.65, // Trigger when 50% of the element is visible
+                        };
+
+                        // Create the observer
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                // Find the caption element within the observed gallery item
+                                const caption = entry.target.querySelector('.gallery__caption');
+                                if (entry.isIntersecting) {
+                                    // When the element is in view, add the "visible" class to fade in the caption
+                                    caption.classList.add('visible');
+                                } else {
+                                    // Optionally remove the class when it's out of view (if you want it to fade out)
+                                    caption.classList.remove('visible');
+                                }
+                            });
+                        }, observerOptions);
+
+                        // Observe each gallery item
+                        galleryThumbs.forEach(thumb => observer.observe(thumb));
+                    }
                 });
             })
             .catch(error => console.error('Error loading paintings data:', error));
@@ -115,6 +144,8 @@
         document.getElementById('close-overlay').addEventListener('click', function () {
             document.getElementById('overlay').style.display = 'none';
         });
+
+
     </script>
 </body>
 

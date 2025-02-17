@@ -95,6 +95,12 @@ footer {
 .gallery__link:hover .gallery__caption {
   opacity: 1;
 }
+
+/* When the "visible" class is added, show the caption */
+.gallery__caption.visible {
+  opacity: 1;
+}
+
 .gallery__link:hover .gallery__image {
   transform: scale(1.1);
 }
