@@ -108,6 +108,11 @@
                         enableScroll(); // Enable scrolling when overlay is closed
                     });
 
+                    // show alert for hover and pointer type
+                    let hover = window.matchMedia('(hover: none)').matches;
+                    let pointer = window.matchMedia('(pointer: coarse)').matches;
+                    alert("Hover: " + hover + " Pointer: " + pointer);
+
                     // Check if the device likely doesn't support hover (e.g., a mobile device)
                     if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
                         // Select all the gallery item containers (the <figure> elements)
