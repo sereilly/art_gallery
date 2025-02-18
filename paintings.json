@@ -1,6 +1,6 @@
 [
     {
-        "title": "Fiery Dance",
+        "title": "Fragmented Crevice",
         "description": "Oil on Canvas - 36x48",
         "image": "art/fd.jpg",
         "price": "$9,999"
@@ -25,7 +25,7 @@
         "price": "$9,999"
     },
     {
-        "title": "Untitled",
+        "title": "Fiery Dance",
         "description": "Oil on Canvas - 48x48",
         "image": "art/IMG_6251.PNG",
         "price": "$9,999"
@@ -47,5 +47,7 @@
         "description": "Oil on Canvas - 48x48",
         "image": "art/IMG_6419.jpg",
         "price": "$9,999"
-    }
-]
+    }   
+    
+      
+    ]
