@@ -19,9 +19,9 @@
         "price": "$"
     },
     {
-        "title": "Recipe for Nougat",
+        "title": "Nougat",
         "description": "Oil on Canvas - 48x48",
-        "image": "art/IMG_6250.jpg",
+        "image": "art/Nougat.jpg",
         "price": "$"
     },
     {
@@ -33,7 +33,7 @@
     {
         "title": "Pastel Pool",
         "description": "Oil on Canvas - 48x48",
-        "image": "art/IPastel Pool.jpg",
+        "image": "art/Pastel Pool.jpg",
         "price": ""
     },
     {
