@@ -27,7 +27,7 @@
     {
         "title": "Fiery Dance",
         "description": "Oil on Canvas - 48x48",
-        "image": "Fiery Dance.jpg",
+        "image": "art/Fiery Dance.jpg",
         "price": ""
     },
     {
@@ -45,7 +45,7 @@
     {
         "title": "Way Off the Grid",
         "description": "Oil on Canvas - 48x48",
-        "image": "art/Way-Off-the-Grid-.jpg",
+        "image": "art/Way-Off-the-Grid.jpg",
         "price": ""
     }   
     
