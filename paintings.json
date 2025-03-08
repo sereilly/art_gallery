@@ -3,32 +3,32 @@
         "title": "Fragmented Crevice",
         "description": "Oil on Canvas - 36x48",
         "image": "art/Fragmented-Crevice.jpg",
-        "price": "$9,999"
+        "price": "$"
     },
     {
         "title": "Goldenrod",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Goldenrod.jpg",
-        "price": "$9,999"
+        "price": "$"
 
     },
     {
         "title": "Tranquil Journey",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Tranquil Journey.jpg",
-        "price": "$9,999"
+        "price": "$"
     },
     {
         "title": "Recipe for Nougat",
         "description": "Oil on Canvas - 48x48",
         "image": "art/IMG_6250.jpg",
-        "price": "$9,999"
+        "price": "$"
     },
     {
         "title": "Fiery Dance",
         "description": "Oil on Canvas - 48x48",
         "image": "art/IMG_6251.PNG",
-        "price": "$9,999"
+        "price": ""
     },
     {
         "title": "Pastel Pool",
@@ -40,13 +40,13 @@
         "title": "Off the Grid",
         "description": "Oil on Canvas - 48x48",
         "image": "art/IMG_6418.jpg",
-        "price": "$9,999"
+        "price": ""
     },
     {
         "title": "Way Off the Grid",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Way-Off-the-Grid-.PNG",
-        "price": "$9,999"
+        "price": ""
     }   
     
       
