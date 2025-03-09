@@ -44,15 +44,15 @@ footer {
   padding: 0.5rem;
   background-color: #333;
   color: #fdfdfd;
-  /* align to bottom */
-  /* align to bottom */
 }
 
 .gallery {
   display: grid;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: 1fr;
-  gap: 5px;
-  padding: 1rem;
+  gap: 1.5rem;
+  padding: 2rem;
   transition: 0.3s;
 }
 @media (min-width: 768px) {
@@ -65,25 +65,25 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (min-width: 1440px) {
-  .gallery {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
+
 .gallery__thumb {
   position: relative;
   overflow: hidden;
+  width: calc(100% * var(--scaled-width));
+  /* height: calc(100% * var(--scaled-height)); */
+
+  margin:0;
 }
 .gallery__image {
-  display: block;
   width: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
+  height: 100%;
+  transition: transform 0.3s;  
+
 }
 .gallery__caption {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 4px; /* otherwise there's a black bar at the bottom */
+
   width: 100%;
   padding: 15px;
   font-family: "Helvetica", sans-serif;
