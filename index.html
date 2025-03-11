@@ -37,17 +37,12 @@
 
     <script>
         // Fetch the paintings.json data and load dynamically
-        // Fetch the paintings.json data and load dynamically
         fetch('paintings.json')
             .then(response => response.json())
             .then(paintings => {
                 const gallery = document.getElementById('gallery');
 
                 paintings.forEach(painting => {
-                    const link = document.createElement('a');
-                    link.target = "_blank";
-                    link.classList.add('gallery__link');
-
                     const figure = document.createElement('figure');
                     figure.classList.add('gallery__thumb');
 
@@ -56,14 +51,29 @@
                     img.alt = painting.title;
                     img.classList.add('gallery__image');
 
+                    let scaledWidth = 1;
+                    let scaledHeight = 1;
+
+                    // Add dimensions as data attributes
+                    if (painting.width && painting.height) {        
+                        const scaleFactor = 48; // Base width in pixels for gallery items
+                        scaledWidth = painting.width / scaleFactor;
+                        scaledHeight = painting.height / scaleFactor;
+                        
+                        img.style.setProperty('--scaled-width', `${scaledWidth}`);
+                        img.style.setProperty('--scaled-height', `${scaledHeight}`);
+                    }
+
                     const caption = document.createElement('figcaption');
                     caption.classList.add('gallery__caption');
                     caption.innerHTML = `${painting.title}<br>${painting.description}<br>${painting.price}`;
+                    figure.style.setProperty('--scaled-width', `${scaledWidth}`);
+                    figure.style.setProperty('--scaled-height', `${scaledHeight}`);
 
                     figure.appendChild(img);
                     figure.appendChild(caption);
-                    link.appendChild(figure);
-                    gallery.appendChild(link);
+  
+                    gallery.appendChild(figure);
 
                     // Add a function to disable scrolling
                     function disableScroll() {
@@ -115,7 +125,7 @@
 
                         // Set up the IntersectionObserver options (adjust threshold as needed)
                         const observerOptions = {
-                            threshold: 0.65, // Trigger when 50% of the element is visible
+                            threshold: 0.7, // Trigger when 50% of the element is visible
                         };
 
                         // Create the observer

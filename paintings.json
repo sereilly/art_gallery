@@ -2,51 +2,67 @@
     {
         "title": "Fragmented Crevice",
         "description": "Oil on Canvas - 36x48",
-        "image": "art/Fragmented Crevice.jpg",
-        "price": ""
+        "image": "art/Fragmented-Crevice.jpg",
+        "price": "",
+        "width": 36,
+        "height": 48
     },
     {
         "title": "Goldenrod",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Goldenrod.jpg",
-        "price": ""
+        "price": "",
+        "width": 48,
+        "height": 48
 
     },
     {
         "title": "Tranquil Journey",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Tranquil Journey.jpg",
-        "price": ""
+        "price": "",
+        "width": 48,
+        "height": 48
     },
     {
         "title": "Nougat",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Nougat.jpg",
-        "price": ""
+        "price": "",
+        "width": 48,
+        "height": 48
     },
     {
         "title": "Fiery Dance",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Fiery Dance.jpg",
-        "price": ""
+        "price": "",
+        "width": 48,
+        "height": 48
     },
     {
         "title": "Pastel Pool",
         "description": "Oil on Canvas - 48x48",
         "image": "art/Pastel Pool.jpg",
-        "price": ""
+        "price": "",
+        "width": 48,
+        "height": 48
     },
     {
         "title": "Off the Grid",
         "description": "Oil on Canvas - 36x36",
         "image": "art/Off the Grid.jpg",
-        "price": ""
+        "price": "",
+        "width": 36,
+        "height": 36
     },
     {
         "title": "Way Off the Grid",
         "description": "Oil on Canvas - 36x36",
         "image": "art/Way-Off-the-Grid.jpg",
-        "price": ""
+        "price": "",
+        "width": 36,
+        "height": 36
     }   
     
       
