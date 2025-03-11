@@ -1,3 +1,5 @@
+git pull
+
 :: Check the status of the repo
 git status
 
