@@ -63,7 +63,37 @@
         "price": "",
         "width": 36,
         "height": 36
-    }   
+    },
+    {
+        "title": "Autumn",
+        "description": "Oil on Canvas - 24x24",
+        "image": "art/Autumn.jpg",
+        "price": "",
+        "width": 24,
+        "height": 24
+    },   
+    {
+        "title": "Before the Storm",
+        "description": "Oil on Canvas - 24x24",
+        "image": "art/Before the Storm.jpg",
+        "price": "",
+        "width": 24,
+        "height": 24
+    },   
+    {
+        "title": "Willow",
+        "description": "Oil on Canvas - 30x40",
+        "image": "art/Willow.jpg",
+        "price": "",
+        "width": 30,
+        "height": 40
+    },   
+    {
+        "title": "Fiery Dance II.jpg",
+        "description": "Oil on Canvas - 30x30",
+        "price": "",
+        "width": 30,
+        "height": 30
+    }     
     
-      
-    ]
+    
