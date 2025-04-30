@@ -1,0 +1,24 @@
+{
+  "name": "art_gallery",
+  "version": "1.0.0",
+  "description": "To keep the art gallery website up-to-date with new artworks or changes to existing pieces, follow the steps outlined below.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sereilly/art_gallery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sereilly/art_gallery/issues"
+  },
+  "homepage": "https://github.com/sereilly/art_gallery#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

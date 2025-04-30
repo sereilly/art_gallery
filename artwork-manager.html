@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Artwork Manager</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; vertical-align: middle; }
+    th { background: #f0f0f0; }
+    input[type="text"], input[type="number"] {
+      width: 100%; box-sizing: border-box;
+    }
+    .form-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .form-row input, .form-row button { flex: 1; min-width: 150px; }
+    button { padding: 6px 12px; cursor: pointer; }
+    #controls { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .preview { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; }
+    .warning { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Artwork JSON Manager</h1>
+
+  <div id="controls">
+    <button onclick="saveJSON()">💾 Save Changes</button>
+    <button onclick="clearAll()">🗑 Clear All</button>
+  </div>
+
+  <div class="form-row">
+    <input id="title" type="text" placeholder="Title">
+    <input id="description" type="text" placeholder="Description">
+    <input id="image" type="text" placeholder="Image Path">
+    <input id="price" type="text" placeholder="Price">
+    <input id="width" type="number" placeholder="Width">
+    <input id="height" type="number" placeholder="Height">
+    <button onclick="addEntry()">Add</button>
+  </div>
+
+  <table id="artTable">
+    <thead>
+      <tr>
+        <th>Preview</th><th>Title</th><th>Description</th><th>Image Path</th><th>Price</th><th>Width</th><th>Height</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    let data = [];
+
+    async function loadJSON() {
+      try {
+        const res = await fetch('paintings.json');
+        if (!res.ok) throw new Error("Failed to load paintings.json");
+        data = await res.json();
+        renderTable();
+      } catch (err) {
+        alert("Could not load paintings.json:\n" + err.message);
+      }
+    }
+
+    async function saveJSON() {
+      try {
+        const res = await fetch('/save-json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data, null, 2)
+        });
+        if (!res.ok) throw new Error("Server error");
+        alert("Changes saved to paintings.json!");
+      } catch (err) {
+        alert("Failed to save: " + err.message);
+      }
+    }
+
+    function renderTable() {
+      const tbody = document.querySelector('#artTable tbody');
+      tbody.innerHTML = "";
+      data.forEach((entry, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>
+            <img id="preview-${index}" class="preview" src="${entry.image}" onerror="handleBrokenImage(${index})">
+            <div id="warning-${index}" class="warning" style="display: none;">⚠</div>
+          </td>
+          <td contenteditable="true" oninput="updateField(${index}, 'title', this.innerText)">${entry.title}</td>
+          <td contenteditable="true" oninput="updateField(${index}, 'description', this.innerText)">${entry.description}</td>
+          <td contenteditable="true" oninput="updateImagePath(${index}, this.innerText)">${entry.image}</td>
+          <td contenteditable="true" oninput="updateField(${index}, 'price', this.innerText)">${entry.price}</td>
+          <td contenteditable="true" oninput="updateField(${index}, 'width', this.innerText, true)">${entry.width}</td>
+          <td contenteditable="true" oninput="updateField(${index}, 'height', this.innerText, true)">${entry.height}</td>
+          <td><button onclick="removeEntry(${index})">Remove</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function updateField(index, field, value, isNumber = false) {
+      data[index][field] = isNumber ? parseInt(value) || 0 : value.trim();
+    }
+
+    function updateImagePath(index, value) {
+      data[index].image = value.trim();
+      const img = document.getElementById(`preview-${index}`);
+      const warning = document.getElementById(`warning-${index}`);
+      if (img) {
+        img.onerror = () => { warning.style.display = "block"; img.style.display = "none"; };
+        img.onload = () => { warning.style.display = "none"; img.style.display = "inline"; };
+        img.src = value.trim();
+      }
+    }
+
+    function handleBrokenImage(index) {
+      const warning = document.getElementById(`warning-${index}`);
+      const img = document.getElementById(`preview-${index}`);
+      if (warning && img) {
+        warning.style.display = "block";
+        img.style.display = "none";
+      }
+    }
+
+    function addEntry() {
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const image = document.getElementById('image').value.trim();
+      const price = document.getElementById('price').value.trim();
+      const width = parseInt(document.getElementById('width').value);
+      const height = parseInt(document.getElementById('height').value);
+      if (!title || !description || !image || isNaN(width) || isNaN(height)) {
+        alert("Please fill in all fields correctly.");
+        return;
+      }
+      data.push({ title, description, image, price, width, height });
+      renderTable();
+      document.querySelectorAll('.form-row input').forEach(input => input.value = "");
+    }
+
+    function removeEntry(index) {
+      data.splice(index, 1);
+      renderTable();
+    }
+
+    function clearAll() {
+      if (confirm("Are you sure you want to remove all entries?")) {
+        data = [];
+        renderTable();
+      }
+    }
+
+    // Auto-load JSON on page load
+    window.addEventListener("DOMContentLoaded", loadJSON);
+  </script>
+</body>
+</html>
