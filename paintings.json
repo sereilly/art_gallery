@@ -64,6 +64,14 @@
     "height": 36
   },
   {
+    "title": "Canyon Echos - SOLD",
+    "description": "Oil on Canvas - 36x36",
+    "image": "Canyon Echos.jpg",
+    "price": "",
+    "width": 24,
+    "height": 48
+  },
+  {
     "title": "Autumn - SOLD",
     "description": "Oil on Canvas - 24x24",
     "image": "art/Autumn.jpg",
@@ -72,6 +80,14 @@
     "height": 24
   },
   {
+    "title": "Confluence",
+    "description": "Oil on Canvas - 24x48",
+    "image": "art/Confluence.jpg",
+    "price": "",
+    "width": 24,
+    "height": 48
+  },
+   {
     "title": "Before the Storm - SOLD",
     "description": "Oil on Canvas - 24x24",
     "image": "art/Before the Storm.jpg",
